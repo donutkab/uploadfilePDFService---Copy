@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FDA_DROPBOXModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_fileinfo">
+          <Key>
+            <PropertyRef Name="file_id" />
+          </Key>
+          <Property Name="file_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="file_name" Type="text" />
+          <Property Name="tr_id" Type="int" />
+          <Property Name="file_description" Type="text" />
+          <Property Name="path" Type="text" />
+          <Property Name="remark" Type="text" />
+          <Property Name="remark_status" Type="text" />
+          <Property Name="created_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_info">
+          <Key>
+            <PropertyRef Name="tr_id" />
+          </Key>
+          <Property Name="tr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="citizen" Type="varchar" MaxLength="50" />
+          <Property Name="identify" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+          <Property Name="process" Type="varchar" MaxLength="50" />
+          <Property Name="organization" Type="varchar" MaxLength="50" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="updated_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_log_history">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tr_id" Type="int" />
+          <Property Name="xml_data" Type="xml" />
+          <Property Name="version" Type="int" />
+          <Property Name="created_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_staff_comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tr_id" Type="int" />
+          <Property Name="staff_citizen" Type="nvarchar" MaxLength="50" />
+          <Property Name="staff_remark" Type="text" />
+          <Property Name="created_date" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="FDA_DROPBOXModelStoreContainer">
+          <EntitySet Name="tbl_fileinfo" EntityType="Self.tbl_fileinfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_info" EntityType="Self.tbl_info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_log_history" EntityType="Self.tbl_log_history" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_staff_comment" EntityType="Self.tbl_staff_comment" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FDA_DROPBOXModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_fileinfo">
+          <Key>
+            <PropertyRef Name="file_id" />
+          </Key>
+          <Property Name="file_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="file_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="tr_id" Type="Int32" />
+          <Property Name="file_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="remark_status" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_info">
+          <Key>
+            <PropertyRef Name="tr_id" />
+          </Key>
+          <Property Name="tr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="citizen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="identify" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="process" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="organization" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="updated_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_log_history">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tr_id" Type="Int32" />
+          <Property Name="xml_data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_staff_comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tr_id" Type="Int32" />
+          <Property Name="staff_citizen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="staff_remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="FDA_DROPBOXEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_fileinfo" EntityType="Self.tbl_fileinfo" />
+          <EntitySet Name="tbl_info" EntityType="Self.tbl_info" />
+          <EntitySet Name="tbl_log_history" EntityType="Self.tbl_log_history" />
+          <EntitySet Name="tbl_staff_comment" EntityType="Self.tbl_staff_comment" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FDA_DROPBOXModelStoreContainer" CdmEntityContainer="FDA_DROPBOXEntities">
+          <EntitySetMapping Name="tbl_fileinfo">
+            <EntityTypeMapping TypeName="FDA_DROPBOXModel.tbl_fileinfo">
+              <MappingFragment StoreEntitySet="tbl_fileinfo">
+                <ScalarProperty Name="file_id" ColumnName="file_id" />
+                <ScalarProperty Name="file_name" ColumnName="file_name" />
+                <ScalarProperty Name="tr_id" ColumnName="tr_id" />
+                <ScalarProperty Name="file_description" ColumnName="file_description" />
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="remark_status" ColumnName="remark_status" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_info">
+            <EntityTypeMapping TypeName="FDA_DROPBOXModel.tbl_info">
+              <MappingFragment StoreEntitySet="tbl_info">
+                <ScalarProperty Name="tr_id" ColumnName="tr_id" />
+                <ScalarProperty Name="citizen" ColumnName="citizen" />
+                <ScalarProperty Name="identify" ColumnName="identify" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="process" ColumnName="process" />
+                <ScalarProperty Name="organization" ColumnName="organization" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_log_history">
+            <EntityTypeMapping TypeName="FDA_DROPBOXModel.tbl_log_history">
+              <MappingFragment StoreEntitySet="tbl_log_history">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tr_id" ColumnName="tr_id" />
+                <ScalarProperty Name="xml_data" ColumnName="xml_data" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_staff_comment">
+            <EntityTypeMapping TypeName="FDA_DROPBOXModel.tbl_staff_comment">
+              <MappingFragment StoreEntitySet="tbl_staff_comment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tr_id" ColumnName="tr_id" />
+                <ScalarProperty Name="staff_citizen" ColumnName="staff_citizen" />
+                <ScalarProperty Name="staff_remark" ColumnName="staff_remark" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
